@@ -25,7 +25,7 @@ _t = 1;                                                                         
 _g = (1 - ([0,0,1] vectorDotProduct (surfaceNormal position player))) * 8 + 1;  //terrain gradient
 _duty = GVAR(animDuty);                                                         //animation duty (kneeling vs. standing)
 
-if (surfaceIsWater getPosASL _unit) then {
+if (underwater _unit) then {
     _g = 1;
     _duty = 4;
 };
