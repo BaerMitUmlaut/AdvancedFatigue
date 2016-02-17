@@ -27,7 +27,7 @@ private ["_currentWork", "_oxygen", "_wattsPerATP", "_ae1Reserve", "_ae2Reserve"
 if (isNull ACE_player) exitWith {}; //Map intros
 
 _currentWork = REE;
-_currentSpeed = vectorMagnitude (velocity ACE_player);
+_currentSpeed = (vectorMagnitude (velocity ACE_player)) min 6;
 if ((vehicle ACE_player == ACE_player) && {_currentSpeed > 0.1}) then {
     _currentWork = [ACE_player, _currentSpeed] call FUNC(getMetabolicCosts);
     _currentWork = _currentWork max REE;
