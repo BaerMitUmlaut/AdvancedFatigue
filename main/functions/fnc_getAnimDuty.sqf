@@ -35,8 +35,11 @@ if ((_animPrefix == "Aidl") || {_animPrefix == "Amov"}) then {
         };
     };
 
+    if ((_animName select [9, 3]) == "tac") then {
+        _duty = _duty * 1.5;
+    };
     if ((_animName select [13, 3]) == "ras") then {
-        _duty = _duty * 2;
+        _duty = _duty * 1.2;
     };
 };
 

@@ -42,7 +42,7 @@ if (GVAR(ppeBlackoutLast) == 1) then {
     GVAR(ppeBlackout) ppEffectAdjust [1,1,0,[0,0,0,1],[0,0,0,0],[1,1,1,1],[10,10,0,0,0,0.1,0.5]];
     GVAR(ppeBlackout) ppEffectCommit 1;
 } else {
-    if (_fatigue > 0.90) then {
+    if (_fatigue > 0.85) then {
         if (GVAR(ppeBlackoutLast) > (100 - _fatigue * 100) / 3) then {
             GVAR(ppeBlackout) ppEffectAdjust [1,1,0,[0,0,0,1],[0,0,0,0],[1,1,1,1],[2,2,0,0,0,0.1,0.5]];
             GVAR(ppeBlackout) ppEffectCommit 1;
@@ -54,12 +54,9 @@ if (GVAR(ppeBlackoutLast) == 1) then {
 //Physical effects
 if (_overexhausted) then {
     _unit forceWalk true;
-    _unit setAnimSpeedCoef 0.8;
-    [_unit, objNull, ace_hitreactions_minDamageToTrigger + 0.1] call ace_hitreactions_fnc_fallDown;
 } else {
     if (isForcedWalk _unit && {_fatigue < 0.7}) then {
         _unit forceWalk false;
-        _unit setAnimSpeedCoef 1;
     } else {
         if ((isSprintAllowed _unit) && {_fatigue > 0.7}) then {
             _unit allowSprint false;
@@ -71,16 +68,13 @@ if (_overexhausted) then {
     };
 };
 switch (stance _unit) do {
-    case ("STAND"): {
-        _unit setCustomAimCoef (1.5 + _fatigue * _fatigue * 5);
-    };
     case ("CROUCH"): {
-        _unit setCustomAimCoef (1.2 + _fatigue * _fatigue * 5);
+        _unit setCustomAimCoef (1 + _fatigue * _fatigue * 0.1);
     };
-    case ("CROUCH"): {
-        _unit setCustomAimCoef (1 + _fatigue * _fatigue * 4);
+    case ("PRONE"): {
+        _unit setCustomAimCoef (1 + _fatigue * _fatigue * 2);
     };
     default {
-        _unit setCustomAimCoef (1.5 + _fatigue * _fatigue * 5);
+        _unit setCustomAimCoef (1.5 + _fatigue * _fatigue * 3);
     };
 };
