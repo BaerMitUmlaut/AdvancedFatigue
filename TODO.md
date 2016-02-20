@@ -5,6 +5,8 @@
 - Adrenaline simulation - more energy in panic situations
 - Eden integration
 - HUD indicator of anaerobic fatigue
+- Documentation of all influences
+- Combat Stance penalty dependant on weapon weight
 
 ## May Haves
 - Tweak slow-jog speed to have better intermediate speed between jogging and walking
