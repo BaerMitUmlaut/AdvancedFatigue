@@ -20,7 +20,7 @@ params ["_unit", "_v"];
 private ["_currentPos", "_m", "_l", "_t", "_g", "_postureWeight", "_duty"];
 
 _m = 70;                                                                        //unit weight
-_l = loadAbs _unit * 0.1 * 1/2.2046;                                            //gear weight
+_l = loadAbs _unit * 0.1 * 1/2.2046 * 1.3;                                      //gear weight
 _t = 1;                                                                         //terrain factor - not implemented, could cause problems with addon maps - TODO!
 _g = (1 - ([0,0,1] vectorDotProduct (surfaceNormal position player))) * 8 + 1;  //terrain gradient
 _duty = GVAR(animDuty);                                                         //animation duty (kneeling vs. standing)
