@@ -78,10 +78,10 @@ _anReserve = _anReserve - _anPower/_wattsPerATP;
 _anFatigue = _anFatigue + _anPower * (0.057/_peakPower) * 1.1;
 
 //Anearobic fatigue and ATP reserve recovery
-_ae1Reserve = ((_ae1Reserve + _oxygen * 6.6 * (_ae1PathwayPower - _ae1Power) / _ae1PathwayPower) min 4000000) max 0;
-_ae2Reserve = ((_ae2Reserve + _oxygen * 5.83 * (_ae2PathwayPower - _ae2Power) / _ae2PathwayPower) min 84000) max 0;
-_anReserve = ((_anReserve + (_ae1PathwayPowerFatigued + _ae2PathwayPowerFatigued - _ae1Power - _ae2Power) / _VO2maxPower * 56.7 * 1 * _anFatigue^2) min 2300) max 0;
-_anFatigue = ((_anFatigue - (_ae1PathwayPowerFatigued + _ae2PathwayPowerFatigued - _ae1Power - _ae2Power) * (0.057/_peakPower) * _anFatigue^2) min 1) max 0;
+_ae1Reserve = ((_ae1Reserve + 0.5 * _oxygen * 6.6 * (_ae1PathwayPower - _ae1Power) / _ae1PathwayPower) min 4000000) max 0;
+_ae2Reserve = ((_ae2Reserve + 0.5 * _oxygen * 5.83 * (_ae2PathwayPower - _ae2Power) / _ae2PathwayPower) min 84000) max 0;
+_anReserve = ((_anReserve + 0.5 * (_ae1PathwayPowerFatigued + _ae2PathwayPowerFatigued - _ae1Power - _ae2Power) / _VO2maxPower * 56.7 * 1 * _anFatigue^2) min 2300) max 0;
+_anFatigue = ((_anFatigue - 0.5 * (_ae1PathwayPowerFatigued + _ae2PathwayPowerFatigued - _ae1Power - _ae2Power) * (0.057/_peakPower) * _anFatigue^2) min 1) max 0;
 
 _aeReservePercentage = (_ae1Reserve / 4000000 + _ae2Reserve / 84000) / 2;
 
