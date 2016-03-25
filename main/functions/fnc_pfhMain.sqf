@@ -92,6 +92,10 @@ if (GVAR(logTimer) == 10) then {
     diag_log text (format ["[AdvancedFatigue] Data Log |%1|%2|%3|%4|%5", _anReserve/2300, _ae2Reserve/84000, _ae1Reserve/4000000, _anFatigue, ((_anReserve / 2300) max _aeReservePercentage), 0]);
 };
 
+if (GVAR(fatigueBarShown)) then {
+    (uiNamespace getVariable [QGVAR(fatigueBar), controlNull]) progressSetPosition (1 - (_anReserve / 2300));
+};
+
 if (_anReserve == 0) then {
     [ACE_player, 1 - ((_anReserve / 2300) min _aeReservePercentage), true] call FUNC(effectsHandler);
 } else {

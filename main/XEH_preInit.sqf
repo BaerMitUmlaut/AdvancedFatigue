@@ -6,5 +6,6 @@ PREP(effectsHandler);
 PREP(getAnimDuty);
 PREP(getMetabolicCosts);
 PREP(pfhMain);
+PREP(showFatigueBar);
 
 ADDON = true;
