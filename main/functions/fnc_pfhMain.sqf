@@ -30,6 +30,7 @@ _currentWork = REE;
 _currentSpeed = (vectorMagnitude (velocity ACE_player)) min 6;
 if ((vehicle ACE_player == ACE_player) && {_currentSpeed > 0.1}) then {
     _currentWork = [ACE_player, _currentSpeed] call FUNC(getMetabolicCosts);
+    _currentWork = _currentWork * 0.9;
     _currentWork = _currentWork max REE;
 };
 
