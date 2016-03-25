@@ -1,5 +1,4 @@
 #define COMPONENT main
-
 #include "\b\advancedfatigue\addons\main\script_mod.hpp"
 
 #ifdef DEBUG_ENABLED_MAIN
